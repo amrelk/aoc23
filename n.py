@@ -1,18 +1,15 @@
 import os
 import sys
 import re
+sys.path.append('..')
+import helpers
 
 def run(inp = None):
-    if inp != None:
-        lines = inp.splitlines()
-    else:
-        with open(os.path.join(sys.path[0], 'input')) as f:
-            lines = f.read().splitlines()
+    inp = helpers.get_input()
+    print(inp)
 
-    print(lines)
 
 if __name__ == '__main__':
-    try:
-        run(sys.argv[1])
-    except:
-        run()
+    ret = run()
+    print(ret)
+    os.system(f"echo -n '{ret}' | xclip -selection c")
